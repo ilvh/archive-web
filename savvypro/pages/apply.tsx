@@ -38,26 +38,31 @@ class ApplyForm extends React.Component<{ form: any }> {
         e.preventDefault();
         this.props.form.validateFields(async (err: any, values: any) => {
             if (!err) {
-
-                await fetch('http://api.jdbyx.com.cn/api/contact', {
+                debugger
+                const res: any = await fetch('http://api.jdbyx.com.cn/api/contact', {
                     method: "POST",
                     headers: {
                         'Content-Type': 'application/json'
                     },
                     body: JSON.stringify(values)
                 }).then((response: any) => {
-                    const { data } = response.json();
-                    console.log(data);
-                    if (true) {
-                        Modal.success({
-                            content: '提交成功',
-                            okText: '确定',
-                            onOk: () => {
-                                this.props.form.resetFields();
-                            }
-                        });
-                    }
-                })
+                    return response.json();
+                });
+                debugger
+                if (res.code === 200) {
+                    Modal.success({
+                        content: '提交成功',
+                        okText: '确定',
+                        onOk: () => {
+                            this.props.form.resetFields();
+                        }
+                    });
+                } else {
+                    Modal.error({
+                        content: res.msg,
+                        okText: '关闭',
+                    });
+                }
             }
         });
     }

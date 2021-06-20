@@ -44,7 +44,7 @@ class News extends React.Component<{ posts: any[], total: number, router: any, p
                         {post.title}
                       </a>
                     </div>
-                    <div className="prose max-w-none text-gray-500 mt-6" dangerouslySetInnerHTML={{ __html: post.sub_title }}></div>
+                    <div className="prose max-w-none text-gray-500 mt-6 sub_title" dangerouslySetInnerHTML={{ __html: post.sub_title }}></div>
                     <div className="text-base font-medium mt-7">
                       <a className="text-teal-600 hover:text-teal-700" target="_blank" href={`/detail/${post.id}`} >
                         查看更多 →

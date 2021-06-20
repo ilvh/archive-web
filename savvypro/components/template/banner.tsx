@@ -12,7 +12,7 @@ import EnrollCountdownTimer from '../elements/EnrollCountdownTimer'
 import QRCodeModal from '../elements/QRCodeModal'
 import { Modal } from 'antd'
 
-export interface TemplateBannerProps {}
+export interface TemplateBannerProps { }
 export interface TemplateBannerData {
   type: "TemplateBanner";
   //   data: TemplateBannerProps;
@@ -62,9 +62,9 @@ export class TemplateBannerPre extends Component<TemplateBannerProps> {
     activeIndex: number;
     showModal: boolean;
   } = {
-    activeIndex: 0,
-    showModal: false,
-  };
+      activeIndex: 0,
+      showModal: false,
+    };
 
   render() {
     const router = (this.props as any).router;
@@ -89,8 +89,8 @@ export class TemplateBannerPre extends Component<TemplateBannerProps> {
         bannerInfo = program.bannerInfo;
         bannerVideo = program.video ? program.video : ''
       }
-      
-      
+
+
       if (bannerInfo && this.props.bannerInfo && this.props.bannerInfo.lesson) {
         bannerInfo.courseDetails = `${this.props.bannerInfo.program.label} | ${this.props.bannerInfo.lesson.label}`
         const date = new Date(this.props.bannerInfo.lesson.start_at.replace(/ /g, 'T'))
@@ -158,16 +158,16 @@ export class TemplateBannerPre extends Component<TemplateBannerProps> {
           <source src={bannerVideo.link} type="video/mp4" />
         </video>
       )
-    } 
+    }
 
     return (
       <div className="bg-black relative h-full" style={{ height: '80vh', marginBottom: -60 }}>
         {bannerContent}
         <div className="relative h-full">
-          <Container className={className4Text}>        
+          <Container className={className4Text}>
             <div style={{ width: '100%', display: 'inline-block' }}>
               <Link href={backTo.href}>
-                <a className={`text-2xl ${name === 'Vip1对1求职辅导' ? 'bg-black hover:bg-transparent':''} font-medium hover:text-yellow-700 transition`}>
+                <a className={`text-2xl ${name === 'Vip1对1求职辅导' ? 'bg-black hover:bg-transparent' : ''} font-medium hover:text-yellow-700 transition`}>
                   <IcomoonReact
                     className="fill-current"
                     iconSet={iconSet}
@@ -177,18 +177,18 @@ export class TemplateBannerPre extends Component<TemplateBannerProps> {
                   {backTo.text}
                 </a>
               </Link>
-              <h1 className={`text-4xl ${name === 'Vip1对1求职辅导' ? 'text-black':'text-white'} font-medium`}>{name}</h1>
+              <h1 className={`text-4xl ${name === 'Vip1对1求职辅导' ? 'text-black' : 'text-white'} font-medium`}>{name}</h1>
             </div>
-           
-            {bannerInfo && 
-            <div 
-              className="justify-center" 
-              style={
-               { position: 'absolute', backgroundColor: '#000000', background: 'rgba(0, 0, 0, 0.6)', boxShadow: '-10px 0px #ff7676', borderRadius: 10, display: 'inline', minHeight: '300px', minWidth: '530px', marginLeft: 400 }
-              }
-            >
-              <div className="text-lg font-medium transition text-white justify-center" style={{ fontSize: 24, color: '#FFFFFF', marginLeft: '10%', marginTop: 20 }}>         
-                <div>
+
+            {bannerInfo &&
+              <div
+                className="justify-center"
+                style={
+                  { position: 'absolute', backgroundColor: '#000000', background: 'rgba(0, 0, 0, 0.6)', boxShadow: '-10px 0px #ff7676', borderRadius: 10, display: 'inline', minHeight: '300px', minWidth: '530px', marginLeft: 400 }
+                }
+              >
+                <div className="text-lg font-medium transition text-white justify-center" style={{ fontSize: 24, color: '#FFFFFF', marginLeft: '10%', marginTop: 20 }}>
+                  <div>
                     <div className="flex mb-4">
                       <div className="w-3/5">火热报名</div>
                       {bannerInfo.chatBubble && <div className="w-1/5" style={{
@@ -204,22 +204,22 @@ export class TemplateBannerPre extends Component<TemplateBannerProps> {
                         overflowX: "hidden",
                         verticalAlign: 'middle',
                       }}>
-                      {bannerInfo.chatBubble}</div>}
+                        {bannerInfo.chatBubble}</div>}
                     </div>
                     <hr align="left" style={{ border: '1px solid', opacity: 0.3, width: '90%' }} />
                     <div style={{ fontSize: 18, marginTop: 15 }}>
-                      {bannerInfo.courseDetails} 
-                      <EnrollCountdownTimer endDate={this.props.bannerInfo.lesson.start_at} />
+                      {bannerInfo.courseDetails}
+                      <EnrollCountdownTimer endDate={(this.props.bannerInfo.lesson || {}).start_at} />
                     </div>
                     <div style={{ fontSize: 14, marginTop: 15, color: '#ffd855' }}>{bannerInfo.dateAndPlace}</div>
                     <div style={{ fontSize: 14, marginTop: 15 }}>价格：<span style={{ fontSize: 28, letterSpacing: 2 }}><span style={{ textDecoration: bannerInfo.discountedPrice ? 'line-through' : '' }}>${bannerInfo.price}</span>{bannerInfo.discountedPrice && <span style={{ color: '#ff7676', textDecoration: '', marginLeft: 5 }}>${bannerInfo.discountedPrice}</span>}</span>{bannerInfo.extraInfo}</div>
                     <div style={{ marginTop: 15 }}><Button onClick={this.showModal} value="bannerInfo">现在报名</Button><span style={{ marginLeft: 20, fontSize: 21, color: '#ff7676' }}>{bannerInfo.buttonInfo}</span></div>
                     {/* this.showModal */}
-                </div>         
-              </div>
-            </div>}
+                  </div>
+                </div>
+              </div>}
           </Container>
-          <QRCodeModal 
+          <QRCodeModal
             visible={this.state.showModal}
             onCancel={this.hideModal}
           />

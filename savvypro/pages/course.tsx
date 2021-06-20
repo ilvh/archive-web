@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from 'axios';
-import { isMobile } from "react-device-detect"; 
+import { isMobile } from "react-device-detect";
 
 import { TemplateRenderMobile } from "../components/template/mobile";
 import { TemplateRender } from "../components/template";
@@ -18,17 +18,25 @@ import { Courses } from "../screens/courses/data";
 class Offline extends React.Component<{ id: string }> {
   static contextType = TheNavContext;
 
-  static async getInitialProps({ query: { id } }) {
-    const course = Courses.find(course => course.id === id);
+  static async getInitialProps(context: any) {
+    const { query: { id } } = context;
+    let data: any = {};
+    const course: any = Courses.find(course => course.id === id);
     const response = await axios.get(`https://cms-api.savvyuni.com/api/courses/${course.cmsId}`);
-    
-    if (response && response.status === 200)  {
-      return {
+    if (response && response.status === 200) {
+      data = {
         id: id,
         data: response.data,
       }
     }
-    return { id: id };
+    data = { id: id };
+    const res = await axios.get(`http://api.jdbyx.com.cn/api/seo?sub_title=${id}`);
+    if (res && res.status === 200) {
+      const { keywords, description } = res.data.data.data
+      data.keywords = keywords;
+      data.description = description;
+    }
+    return { ...data };
   }
 
   state = {
@@ -74,6 +82,7 @@ class Offline extends React.Component<{ id: string }> {
   }
 
   render() {
+    const { keywords, description } = this.props;
     const course = Courses.find(course => course.id === this.props.id);
     if (this.props.data && this.props.data.lessons) {
       const lessons = this.props.data.lessons.filter(lesson => lesson.is_enable);
@@ -124,8 +133,8 @@ class Offline extends React.Component<{ id: string }> {
     return (
       <div className="">
         <Head
-          title={`Savvypro | ${course.name}`}
-          description="Savvypro is a learning platform"
+          title={keywords || `Savvypro | ${course.name}`}
+          description={description || "Savvypro is a learning platform"}
         />
         <Layout>
           {/* <TemplateBanner /> */}

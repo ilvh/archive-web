@@ -1,7 +1,6 @@
-import React, { Component } from "react";
+import React from "react";
 import axios from 'axios';
-import { isMobile, isMobileOnly } from "react-device-detect"; 
-
+import { isMobile } from "react-device-detect";
 import { TemplateRender } from "../components/template";
 import { TemplateRenderMobile } from "../components/template/mobile";
 import { TemplateBanner } from "../components/template/banner";
@@ -14,17 +13,25 @@ import Head from "../components/head";
 import { programs } from "../screens/programs/data";
 
 class Offline extends React.Component<{ id: string }> {
-  static async getInitialProps({ query: { id } }) {
-    const program = programs.find(program => program.id === id);
+  static async getInitialProps(context: any) {
+    const { query: { id } } = context;
+    let data: any = {};
+    const program: any = programs.find(program => program.id === id);
     const response = await axios.get(`https://cms-api.savvyuni.com/api/programs/${program.cmsId}`);
-
-    if (response && response.status === 200)  {
-      return {
+    if (response && response.status === 200) {
+      data = {
         id: id,
         data: response.data,
       }
     }
-    return { id: id };
+    data = { id: id };
+    const res = await axios.get(`http://api.jdbyx.com.cn/api/seo?sub_title=${id}`);
+    if (res && res.status === 200) {
+      const { keywords, description } = res.data.data.data
+      data.keywords = keywords;
+      data.description = description;
+    }
+    return data;
   }
 
   state = {
@@ -49,6 +56,7 @@ class Offline extends React.Component<{ id: string }> {
   }
 
   render() {
+    const { keywords, description } = this.props;
     const program = programs.find(program => program.id === this.props.id);
     if (!program) return undefined;
     if (this.props.data && this.props.data.lessons && program.page.twoLayerSectionList) {
@@ -123,7 +131,7 @@ class Offline extends React.Component<{ id: string }> {
 
     let statCardPropsArray = [];
     let infoCardPropsArray = [];
-    
+
     if (data && data.length > 0) {
       for (let item of data) {
         if (item.type === "TemplateStatCardWithText") {
@@ -157,12 +165,12 @@ class Offline extends React.Component<{ id: string }> {
     return (
       <div className="">
         <Head
-          title={`Savvypro | ${program.name}`}
-          description="Savvypro is a learning platform"
+          title={keywords || `Savvypro | ${program.name}`}
+          description={description || "Savvypro is a learning platform"}
         />
         <Layout>
           {this.state.banner ? this.state.banner(bannerInfo) : []}
-          { 
+          {
             statCardPropsArray.forEach(stateCard => (
               <TemplateStatCardWithText {...stateCard} />
             ))

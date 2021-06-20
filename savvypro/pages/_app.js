@@ -25,9 +25,7 @@ class MyApp extends App {
             <Component {...pageProps} />
           </Container>
         </VideoProvider>
-        
         <StickyWidget />
-        <BottomPromoRegister />
       </NavProvider>
     );
   }
