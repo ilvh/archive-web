@@ -1,0 +1,4 @@
+.offer-background {
+    background-image: url('/static/pages/home/offer/offer-background.png');
+    background-size: cover;
+}

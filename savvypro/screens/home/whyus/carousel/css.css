@@ -1,0 +1,12 @@
+.whyus__carousel .alice-carousel__stage {
+  display: flex;
+  white-space: initial;
+}
+
+.whyus__carousel .alice-carousel__stage-item {
+  display: flex;
+  flex-shrink: 0;
+  white-space: initial;
+  flex: 1 0 auto;
+  height: auto;
+}

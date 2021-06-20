@@ -1,0 +1,18 @@
+.alice-carousel,
+.alice-carousel > div,
+.alice-carousel__wrapper {
+  height: 100%;
+}
+
+.dot-indicator {
+  height: 20px;
+  width: 5px;
+  opacity: 0.5;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.dot-indicator.active {
+  opacity: 1;
+  height: 30px;
+}

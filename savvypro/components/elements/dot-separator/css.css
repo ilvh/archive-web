@@ -1,0 +1,3 @@
+.dot-separator-transform {
+  transform: rotateZ(45deg) scale(0.8) !important;
+}

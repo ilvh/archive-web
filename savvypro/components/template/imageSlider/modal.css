@@ -1,0 +1,11 @@
+/* purgecss start ignore */
+.react-images__view {
+  display: flex;
+
+  justify-content: center;
+}
+.react-images__positioner,
+.react-images__blanket {
+  z-index: 30 !important;
+}
+/* purgecss end ignore */

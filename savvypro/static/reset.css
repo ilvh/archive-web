@@ -1,0 +1,23 @@
+.text-white a{
+  color:white;
+}
+.text-white-400{
+  color:white;
+}
+.text-gray-700 a span{
+  color: #5C5C5C;
+}
+.text-gray-600 a{
+  color: #979797;
+}
+
+div .text-green-500{
+  color:#54B78A;
+}
+.text-gray-700 span svg{
+  color: #54B78A;
+}
+.mb-7 a{
+  color:#2C2C2C;
+}
+

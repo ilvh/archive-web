@@ -1,0 +1,29 @@
+/* purgecss start ignore */
+.icon-card-3 {
+  grid-template-columns: 1fr auto 1fr auto 1fr;
+}
+.card-grid {
+  grid-gap: 70px 90px;
+}
+@responsive {
+  .icon-card-3 {
+    grid-template-columns: 1fr auto 1fr auto 1fr;
+  }
+
+  .card-3 {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .iconCard-right .iconCard-right {
+    display: block;
+  }
+
+  .iconCard-left .iconCard-left {
+    display: block;
+  }
+
+  .iconCard-bottom .iconCard-bottom {
+    display: block;
+  }
+}
+/* purgecss end ignore */

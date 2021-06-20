@@ -1,0 +1,562 @@
+import { Program, ProgramIDS, withPage } from "../core";
+import { TemplateRenderProps } from "../../../../components/template";
+export class FRM extends Program implements withPage {
+  icon = {
+    webp: {
+      1: require("../../../../static/pages/programs/icons/frm.png?webp"),
+      2: require("../../../../static/pages/programs/icons/frm.png?webp")
+    },
+    jpeg: {
+      1: require("../../../../static/pages/programs/icons/frm.png?resize&size=40"),
+      2: require("../../../../static/pages/programs/icons/frm.png?resize&size=60")
+    }
+  };
+
+  video = {
+    link: 'https://savvyuni-web.s3.amazonaws.com/banners/FRM_banner.mp4',
+    poster: "../../../../static/pages/programs/frm.png"
+  };
+
+  bannerInfo = {
+    courseDetails: 'FRM证书 2020年1月全程班',
+    dateAndPlace: '美东时间2017年10月27日开课  |  多伦多  |  线上',
+    price: 1480,
+    // discountedPrice: 450,
+    extraInfo: '（开课后6天内无条件退换课）',
+    chatBubble: '早报名，惊喜优惠',
+    buttonInfo: '惊喜价！不容错过！'
+  };
+
+  page: TemplateRenderProps = {
+    twoLayerSectionList: [
+      {
+        heading: {
+          title: "课程$$介绍",
+          subTitle: "$$FRM$$风险管理领域最权威的认证"
+        },
+        template: {
+          type: "TemplateInfoSectionWithStats",
+          data: {
+            heading: {},
+            body: <div style={{ width: '370px', lineHeight: 2, letterSpacing: '1px', fontSize: 14 }}>FRM全称是Financial Risk Manager, 作为全球金融风险管理领域最权威的资格认证，涵盖众多领域，包括金融数量分析、市场风险、信用风险、操作风险、基金投资风险、会计、法律等内容。<br />在全球，FRM正日益受到国家金融与监管机构的重视，对于金融监管层，各大银行均把金融风险管理、维持金融稳定作为银行监管的重中之重。 对于大型金融机构，风险管理是贯穿整个银行经营的核心。同时，各大证券公司也对金融市场的资产定价和风险管理高度重视。 因此，随着金融行业对风险管理人员的需求日益增长，FRM考试也因此得到了越来越多的重视和青睐。</div>,
+            video: {
+              cover: {
+                webp: {
+                  1: require("../../../../static/pages/courses/cfa/videoCover.jpg?webp"),
+                  2: require("../../../../static/pages/courses/cfa/videoCover.jpg?webp")
+                },
+                jpeg: {
+                  1: require("../../../../static/pages/courses/cfa/videoCover.jpg?resize&size=500"),
+                  2: require("../../../../static/pages/courses/cfa/videoCover.jpg?resize&size=700")
+                }
+              },
+              videoId: "https://savvyuni-web.s3.amazonaws.com/FRM+20190120+Part+1.mp4",
+              caption: "想要试听完整公开课？$$联系客服",
+              text: "5分钟免费公开课试听"
+            },
+            extraInformation: {
+                title: '为什么选择$$我们?',
+                body: 'FRM一级考试内容侧重基本的金融理论知识，金融市场基础知识和他们的详细定义，以及计量风险的方法。SavvyPro的FRM课程作为一个系统化的保过课程，包含了FRM Part 1的全部知识点。课程由2名拥有3年以上授课经验的FRM持证人老师一同代课，同时配有助教为大家实时答疑，帮你扎实理论基础，透彻理解概念，三个月，带你开启风险分析师的职业之路。'
+            },
+            cardTitle: 'FRM证书 $$VS.$$ CFA证书 ',
+            cards: [
+                {
+                  title: 'FRM 证书',
+                  body: [
+                    '针对性学习各类金融工具的风险量化',
+                    '内容更加偏向数学，统计与风险管理',
+                    '考试费用约3000加币',
+                    '需要2年的工作经验',  
+                  ],
+                },
+                {
+                  title: 'CFA证书',
+                  body: [
+                    '从零开始重新系统性构建金融体系',
+                    '内容多，通过率较低，考过全部三级需要平均4年的时间',
+                    '考试费用约为8000加币',
+                    '需要3年的工作经验',
+                  ],
+                },
+              ],
+            ban: {
+              card: {
+                first: "SavvyPro学员FRM",
+                second: "一次通过率",
+                large: "85",
+                symbol: "%",
+              },
+              infos: [
+                {
+                  big: "90",
+                  small: "总计课程小时"
+                },
+                {
+                  big: "30",
+                  small: "课节总数"
+                },
+                {
+                  big: "500+",
+                  small: "道真题讲解"
+                }
+              ]
+            },
+            jobDetails: {
+              title: '求职$$方向',
+              jobs: [
+                'Credit Risk Analyst',
+                'Portfolio Analyst',
+                'Market Risk Analyst',
+                'Financial Risk Analyst'
+              ],
+              example: {
+                range: '55k - 80k',
+                possibilities: 'Associate, Manager',
+                skills: 'Excel, VBA, SAS'
+              },
+              redirect: [
+                {
+                  title: 'Excel-VBA',
+                  link: './Excel-VBA'
+                },
+                {
+                  title: 'SAS',
+                  link: './SAS'
+                }
+              ]
+            }
+          }
+        },
+        sections: [
+          {
+            heading: {
+              title: "课程$$时间"
+            },
+            type: "TemplateClassesTab",
+            data: {
+              heading: {},
+              tabs: [
+                {
+                  name: "线上课程",
+                  cards: [
+                    {
+                      title: "FRM 证书班",
+                      classes: [
+                        {
+                          name: "2020年1月全程班",
+                          date: new Date("Jan, 2020")
+                        },
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            heading: {
+              title: "课程$$大纲",
+            },
+            type: "TemplateAccordian",
+            data: {
+              heading: {},
+              tabs: [
+                {
+                  name: "",
+                  items: [
+                    {
+                      name: "Lecture 1-4 Foundations of Risk Management",
+                    },
+                    {
+                      name: "Lecture 5-14 Financial Markets & Products",
+                    },
+                    // {
+                    //   name: "Lecture 15-16 Valuation & Risk Models",
+                    // },
+                    {
+                      name: "Lecture 15-23 Valuation & Risk Models",
+                    },
+                    {
+                      name: "Lecture 24-30 Quantitive Analysis",
+                    },
+                  ]
+                },
+              ]
+            }
+          }
+        ]
+      },
+
+      {
+        heading: {
+          title: "讲师介绍",
+          description: "雄厚师资力量，来自顶尖金融机构的导师为你保驾护航"
+        },
+        template: {
+          type: "TemplateCardBannerSlider",
+          data: {
+            heading: {},
+            image: {
+              webp: {
+                1: require("../../../../static/pages/courses/cfa/cardBanner.jpg?webp"),
+                2: require("../../../../static/pages/courses/cfa/cardBanner.jpg?webp")
+              },
+              jpeg: {
+                1: require("../../../../static/pages/courses/cfa/cardBanner.jpg?resize&size=1500"),
+                2: require("../../../../static/pages/courses/cfa/cardBanner.jpg?resize&size=2000")
+              }
+            },
+            cards: [
+              {
+                title: "Lingjie",
+                description: "CFA持证人，TD Bank Risk Managment",
+                body: {
+                  minHeight: 280,
+                  data: "研究生毕业于皇后大学Master of Finance，CFA持证人，目前就职于加拿大五大行TD银行，负责Risk Management。曾在中国招商银行担任理财师，为高净值客户搭建Portfolio并随时根据市场情况调整。在教授理论同时，积极与学员分享丰富的工作经验以及不同背景银行的工作经历，为学生就业提供建议与帮助。"
+                }
+              },
+              {
+                title: "Kevin",
+                description: "RBC银行风险管理高级经理，滑铁卢大学数学硕士",
+                body: {
+                  minHeight: 280,
+                  data: "研究生毕业于加拿大滑铁卢大学数学系，曾担任中国某券商资产管理部门固定收益类(Fixed Income)产品首席交易员，对资本市场各类金融产品的交易以及买方机构产品运作模式有着丰富经验。现就职于加拿大五大行RBC银行，担任风险管理高级经理一职，负责企业信用风险管理模型开发，在工作中积累了丰富的数据分析及建模的经验。"
+                }
+              },
+              {
+                title: "Raymond",
+                description: "Enercare Revenue Assurance and Reporting Analyst, 会计硕士",
+                body: {
+                  minHeight: 280,
+                  data: "现就职于加拿大著名私募基金之一的安省公务员养老金（OMERS), 担任Business Analytics Analyst。主要负责Trading and Risk Application相关的Project Management。在进入OMERS之前，在加拿大5大行积累了5年的工作经验，对于银行的Middle Office的职能以及所需要的技能知识有着深入的了解。"
+                }
+              },
+            ]
+          }
+        },
+        sections: []
+      },
+      {
+        heading: {
+          title: "学员$$反馈",
+          subTitle: "学员真实好评，$$口碑保障"
+        },
+        sections: [],
+        template: {
+          type: "TemplateFullImageSlider",
+          data: {
+            heading: {},
+            cards: [
+              {
+                webp: {
+                  1: require("../../../../static/pages/courses/cfa/wechat/frm/frm1.jpg?webp"),
+                  2: require("../../../../static/pages/courses/cfa/wechat/frm/frm1.jpg?webp")
+                },
+                jpeg: {
+                  1: require("../../../../static/pages/courses/cfa/wechat/frm/frm1.jpg?resize&size=400"),
+                  2: require("../../../../static/pages/courses/cfa/wechat/frm/frm1.jpg?resize&size=600")
+                }
+              },
+              {
+                webp: {
+                  1: require("../../../../static/pages/courses/cfa/wechat/frm/frm2.jpg?webp"),
+                  2: require("../../../../static/pages/courses/cfa/wechat/frm/frm2.jpg?webp")
+                },
+                jpeg: {
+                  1: require("../../../../static/pages/courses/cfa/wechat/frm/frm2.jpg?resize&size=400"),
+                  2: require("../../../../static/pages/courses/cfa/wechat/frm/frm2.jpg?resize&size=600")
+                }
+              },
+              {
+                webp: {
+                  1: require("../../../../static/pages/courses/cfa/wechat/frm/frm3.jpg?webp"),
+                  2: require("../../../../static/pages/courses/cfa/wechat/frm/frm3.jpg?webp")
+                },
+                jpeg: {
+                  1: require("../../../../static/pages/courses/cfa/wechat/frm/frm3.jpg?resize&size=400"),
+                  2: require("../../../../static/pages/courses/cfa/wechat/frm/frm3.jpg?resize&size=600")
+                }
+              },
+              {
+                webp: {
+                  1: require("../../../../static/pages/courses/cfa/wechat/frm/frm5.jpg?webp"),
+                  2: require("../../../../static/pages/courses/cfa/wechat/frm/frm5.jpg?webp")
+                },
+                jpeg: {
+                  1: require("../../../../static/pages/courses/cfa/wechat/frm/frm5.jpg?resize&size=400"),
+                  2: require("../../../../static/pages/courses/cfa/wechat/frm/frm5.jpg?resize&size=600")
+                }
+              },
+              {
+                webp: {
+                  1: require("../../../../static/pages/courses/cfa/wechat/frm/frm6.jpg?webp"),
+                  2: require("../../../../static/pages/courses/cfa/wechat/frm/frm6.jpg?webp")
+                },
+                jpeg: {
+                  1: require("../../../../static/pages/courses/cfa/wechat/frm/frm6.jpg?resize&size=400"),
+                  2: require("../../../../static/pages/courses/cfa/wechat/frm/frm6.jpg?resize&size=600")
+                }
+              },
+              {
+                webp: {
+                  1: require("../../../../static/pages/courses/cfa/wechat/frm/frm7.jpg?webp"),
+                  2: require("../../../../static/pages/courses/cfa/wechat/frm/frm7.jpg?webp")
+                },
+                jpeg: {
+                  1: require("../../../../static/pages/courses/cfa/wechat/frm/frm7.jpg?resize&size=400"),
+                  2: require("../../../../static/pages/courses/cfa/wechat/frm/frm7.jpg?resize&size=600")
+                }
+              },
+              {
+                webp: {
+                  1: require("../../../../static/pages/courses/cfa/wechat/frm/frm8.jpg?webp"),
+                  2: require("../../../../static/pages/courses/cfa/wechat/frm/frm8.jpg?webp")
+                },
+                jpeg: {
+                  1: require("../../../../static/pages/courses/cfa/wechat/frm/frm8.jpg?resize&size=400"),
+                  2: require("../../../../static/pages/courses/cfa/wechat/frm/frm8.jpg?resize&size=600")
+                }
+              },
+            ]
+          }
+        }
+      },
+      {
+        heading: { title: "课程$$服务", subTitle: "上课$$流程" },
+        template: {
+          type: "TemplateIconCarArrows",
+          data: {
+            heading: {},
+            cards: [
+              {
+                icon: "register",
+                title: "注册登陆",
+                info: "新学员请先注册我的账户"
+              },
+              {
+                icon: "buycourse",
+                title: "购买课程",
+                info: "付款后课程会添加到我的课程里"
+              },
+              {
+                icon: "joinclass",
+                title: "加入班级群",
+                info: "开课前两三天，班主任建立群组"
+              },
+              {
+                icon: "thick-classteacher",
+                title: "添加班主任",
+                info: "入群后请添加班主任微信号，班主任负责售后服务"
+              },
+              {
+                icon: "fillform",
+                title: "填写课前调查表",
+                info: "了解学生学习背景，更好因材施教，及时调整课程设置"
+              },
+              {
+                icon: "learn",
+                title: "开始学习",
+                info: "每节课的学习都配有相对的讲义和练习，线下课同学可以参加线上补课"
+              },
+              {
+                icon: "moneyback",
+                title: "打卡获取奖学金",
+                info: "坚持上课作业打卡，学期结束后将获取奖学金"
+              },
+              {
+                icon: "coupon",
+                title: "参与回访，获取优惠券",
+                info: "结课后对课程进行评价，参加回访的同学获取优惠券"
+              }
+            ]
+          }
+        },
+        sections: [
+          {
+            heading: {
+              title: "陪伴式学习服务",
+              description: "贴心教学服务，保障学习效果"
+            },
+            type: "TemplateCardBannerSlider2",
+            data: {
+              heading: {},
+              image: {
+                webp: {
+                  1: require("../../../../static/pages/courses/cfa/cardBanner.jpg?webp"),
+                  2: require("../../../../static/pages/courses/cfa/cardBanner.jpg?webp")
+                },
+                jpeg: {
+                  1: require("../../../../static/pages/courses/cfa/cardBanner.jpg?resize&size=1500"),
+                  2: require("../../../../static/pages/courses/cfa/cardBanner.jpg?resize&size=2000")
+                }
+              },
+              cards: [
+                {
+                  icon: "teacher-two",
+                  title: "班主任责任制",
+                  description:
+                    "贴心的服务与及时的监督，帮助你克服惰性，顺利完成学习"
+                },
+                {
+                  icon: "experiencesharing",
+                  title: "职场经验分享",
+                  description: "导师现身分享职场经验，帮你解决实战中的困惑"
+                },
+                {
+                  icon: "hrs",
+                  title: "24小时答疑解惑",
+                  description:
+                    "知识盲点，作业难题，导师与助教专业评讲为你全方位答疑"
+                },
+                {
+                  icon: "homework",
+                  title: "作业批改讲评",
+                  description: "及时的作业批改与反馈，保证对知识点的及时消化"
+                }
+              ],
+              slides: [
+                {
+                  image: {
+                    webp: {
+                      1: require("../../../../static/pages/courses/cfa/slideImage.jpg?webp"),
+                      2: require("../../../../static/pages/courses/cfa/slideImage.jpg?webp")
+                    },
+                    jpeg: {
+                      1: require("../../../../static/pages/courses/cfa/slideImage.jpg?resize&size=650"),
+                      2: require("../../../../static/pages/courses/cfa/slideImage.jpg?resize&size=1050")
+                    }
+                  },
+                  text: "班主任责任制"
+                },
+                {
+                  image: {
+                    webp: {
+                      1: require("../../../../static/pages/courses/cfa/slide2.jpg?webp"),
+                      2: require("../../../../static/pages/courses/cfa/slide2.jpg?webp")
+                    },
+                    jpeg: {
+                      1: require("../../../../static/pages/courses/cfa/slide2.jpg?resize&size=650"),
+                      2: require("../../../../static/pages/courses/cfa/slide2.jpg?resize&size=1050")
+                    }
+                  },
+                  text: "职场经验分享"
+                },
+                {
+                  image: {
+                    webp: {
+                      1: require("../../../../static/pages/courses/cfa/slide3.jpg?webp"),
+                      2: require("../../../../static/pages/courses/cfa/slide3.jpg?webp")
+                    },
+                    jpeg: {
+                      1: require("../../../../static/pages/courses/cfa/slide3.jpg?resize&size=650"),
+                      2: require("../../../../static/pages/courses/cfa/slide3.jpg?resize&size=1050")
+                    }
+                  },
+                  text: "作业批改讲评"
+                }
+              ]
+            }
+          },
+          {
+            heading: { title: "我们对你的$$承诺" },
+            type: "TemplateImageCards",
+            data: {
+              heading: {},
+              cards: [
+                {
+                  image: {
+                    webp: {
+                      1: require("../../../../static/pages/courses/cfa/imageCards/1.png?webp"),
+                      2: require("../../../../static/pages/courses/cfa/imageCards/1.png?webp")
+                    },
+                    jpeg: {
+                      1: require("../../../../static/pages/courses/cfa/imageCards/1.png?resize&size=650"),
+                      2: require("../../../../static/pages/courses/cfa/imageCards/1.png?resize&size=1050")
+                    }
+                  },
+                  title: "开课后6天不满意，全额退款",
+                  description:
+                    "SavvyPro课程以高质量的口碑与优质的服务为目标，我们承诺，开课后6天内不满意无条件退款"
+                },
+                {
+                  image: {
+                    webp: {
+                      1: require("../../../../static/pages/courses/cfa/imageCards/2.png?webp"),
+                      2: require("../../../../static/pages/courses/cfa/imageCards/2.png?webp")
+                    },
+                    jpeg: {
+                      1: require("../../../../static/pages/courses/cfa/imageCards/2.png?resize&size=650"),
+                      2: require("../../../../static/pages/courses/cfa/imageCards/2.png?resize&size=1050")
+                    }
+                  },
+                  title: "课程有效期内允许多次补课",
+                  description:
+                    "参加线下课的同学在课程有效期内允许多次线下补课，无法参与的也可以申请线上补课。而参加线上课的同学在课程有效期内可以重复多次观看"
+                },
+                {
+                  image: {
+                    webp: {
+                      1: require("../../../../static/pages/courses/cfa/imageCards/3.png?webp"),
+                      2: require("../../../../static/pages/courses/cfa/imageCards/3.png?webp")
+                    },
+                    jpeg: {
+                      1: require("../../../../static/pages/courses/cfa/imageCards/3.png?resize&size=650"),
+                      2: require("../../../../static/pages/courses/cfa/imageCards/3.png?resize&size=1050")
+                    }
+                  },
+                  title: "考试没有通过，免费重修",
+                  description:
+                    "如果证书考试没有通过，提供Fail的证明图片或者新一期考试成功报名的截图，即可申请重修，线下同学可以免费补听线下课程，网课同学支付50刀的补课费用，即可参加新一期的线上课程"
+                }
+              ]
+            }
+          },
+          {
+            heading: {
+              title: "更多$$问题",
+              description: "还有问题？看这里"
+            },
+            type: "TemplateAccordian",
+            data: {
+              heading: {},
+              tabs: [
+                {
+                  name: "",
+                  items: [
+                    {
+                      name: "QA 1: 对课程不满意可以退款或换成网课吗？",
+                      body: "第一节课程可做试听课，如需退课或换课，请在第一节课后的6天内，联系学习督导员或班主任说明情况，即可无条件全额退款或更换成网课，逾期将不再办理退款或换课。",
+                    },
+                    {
+                      name: "QA 2: 线下课程的有效期是多久呢？",
+                      body: "线下课程的有效期为1年，在课程结束一年内可以随时免费补听线下课程，在线下课程结束的一年后，需要联系客服进行重新报名。",
+                    },
+                    {
+                      name: "QA 3: 线上课程的有效期是多久呢？",
+                      body: "线上课程的有效期为其对应的线下课程开课后第2天至线下课程结课后的21天之内。"
+                    },
+                    {
+                      name: "QA 4: 线上课程逾有效期后，是否可以参加线上补课吗？",
+                      body: "线上课程逾期后，可以在结课后一年内以$15/课次的价格进行线上补课，每课次的视频有效期为3天。"
+                    },
+                    {
+                      name: "QA 5: 报名了线上课程的同学可以去线下教室上课吗？",
+                      body: "报名线上课程的同学不可以参加线下课程，如果需要参加线下课程，需要找小助手重新报名线下课程。"
+                    },
+                    {
+                      name: "QA 6: 是否可以提供报销凭证？",
+                      body: "鼓励大家积极与公司沟通，报销课程学费，如需报销，请联系小助手说明情况，获取正式的报销信。"
+                    }
+                  ]
+                },
+              ]
+            }
+          }
+        ]
+      },
+    ]
+  };
+  constructor() {
+    super("FRM", "FRM Part 1证书保过班", ["FRM"], 7);
+  }
+}

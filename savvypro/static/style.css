@@ -1,0 +1,575 @@
+@import url("https://fonts.googleapis.com/css?family=Noto+Sans+SC&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+html {
+  letter-spacing: 1px;
+}
+textarea:focus,
+select:focus,
+input:focus,
+button:focus {
+  outline: none;
+}
+
+.carousel {
+  position: relative;
+}
+
+.carousel.pointer-event {
+  touch-action: pan-y;
+}
+
+.carousel-inner {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  height: 100%;
+}
+
+.carousel-inner::after {
+  display: block;
+  clear: both;
+  content: "";
+}
+
+.carousel-item {
+  position: relative;
+  display: none;
+  float: left;
+  width: 100%;
+  margin-right: -100%;
+  backface-visibility: hidden;
+  transition: transform 0.6s ease-in-out;
+}
+
+@media screen and (prefers-reduced-motion: reduce) {
+  .carousel-item {
+    transition: none;
+  }
+}
+
+.carousel-item.active,
+.carousel-item-next,
+.carousel-item-prev {
+  display: flex;
+}
+
+.carousel-item-next:not(.carousel-item-left),
+.active.carousel-item-right {
+  transform: translateX(100%);
+}
+
+.carousel-item-prev:not(.carousel-item-right),
+.active.carousel-item-left {
+  transform: translateX(-100%);
+}
+
+.carousel-fade .carousel-item {
+  opacity: 0;
+  transition-property: opacity;
+  transform: none;
+}
+
+.carousel-fade .carousel-item.active,
+.carousel-fade .carousel-item-next.carousel-item-left,
+.carousel-fade .carousel-item-prev.carousel-item-right {
+  z-index: 1;
+  opacity: 1;
+}
+
+.carousel-fade .active.carousel-item-left,
+.carousel-fade .active.carousel-item-right {
+  z-index: 0;
+  opacity: 0;
+  transition: 0s 0.6s opacity;
+}
+
+@media screen and (prefers-reduced-motion: reduce) {
+  .carousel-fade .active.carousel-item-left,
+  .carousel-fade .active.carousel-item-right {
+    transition: none;
+  }
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  position: absolute;
+
+  bottom: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #fff;
+  text-align: center;
+  opacity: 0.5;
+  transition: opacity 0.15s ease;
+}
+
+@media screen and (prefers-reduced-motion: reduce) {
+  .carousel-control-prev,
+  .carousel-control-next {
+    transition: none;
+  }
+}
+
+.carousel-control-prev:hover,
+.carousel-control-prev:focus,
+.carousel-control-next:hover,
+.carousel-control-next:focus {
+  color: #fff;
+  text-decoration: none;
+  outline: 0;
+  opacity: 0.9;
+}
+
+.carousel-control-prev {
+  right: 16px;
+  bottom: 55px;
+}
+
+.carousel-control-next {
+  right: 16px;
+  bottom: 16px;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background: transparent no-repeat center center;
+  background-size: 100% 100%;
+}
+
+.carousel-control-prev-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 8 8'%3e%3cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3e%3c/svg%3e");
+}
+
+.carousel-control-next-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 8 8'%3e%3cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3e%3c/svg%3e");
+}
+
+.carousel-indicators {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 15;
+  display: flex;
+  justify-content: center;
+  padding-left: 0;
+  margin-right: 15%;
+  margin-left: 15%;
+  list-style: none;
+}
+
+.carousel-indicators li {
+  box-sizing: content-box;
+  flex: 0 1 auto;
+  width: 30px;
+  height: 3px;
+  margin-right: 3px;
+  margin-left: 3px;
+  text-indent: -999px;
+  cursor: pointer;
+  background-color: #fff;
+  background-clip: padding-box;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  opacity: 0.5;
+  transition: opacity 0.6s ease;
+}
+
+@media screen and (prefers-reduced-motion: reduce) {
+  .carousel-indicators li {
+    transition: none;
+  }
+}
+
+.carousel-indicators .active {
+  opacity: 1;
+}
+.hover-gradient {
+  position: relative;
+}
+.hover-gradient:hover {
+  background: none;
+}
+.hover-gradient:before {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  content: "";
+  width: 100%;
+  height: 100%;
+  background: rgba(57, 187, 189, 1);
+  background: -moz-linear-gradient(
+    45deg,
+    rgba(57, 187, 189, 1) 0%,
+    rgba(56, 131, 228, 1) 100%
+  );
+  background: -webkit-gradient(
+    left bottom,
+    right top,
+    color-stop(0%, rgba(57, 187, 189, 1)),
+    color-stop(100%, rgba(56, 131, 228, 1))
+  );
+  background: -webkit-linear-gradient(
+    45deg,
+    rgba(57, 187, 189, 1) 0%,
+    rgba(56, 131, 228, 1) 100%
+  );
+  background: -o-linear-gradient(
+    45deg,
+    rgba(57, 187, 189, 1) 0%,
+    rgba(56, 131, 228, 1) 100%
+  );
+  background: -ms-linear-gradient(
+    45deg,
+    rgba(57, 187, 189, 1) 0%,
+    rgba(56, 131, 228, 1) 100%
+  );
+  background: linear-gradient(
+    45deg,
+    rgba(57, 187, 189, 1) 0%,
+    rgba(56, 131, 228, 1) 100%
+  );
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#39bbbd', endColorstr='#3883e4', GradientType=1 );
+  color: white !important;
+}
+
+@responsive {
+  .transform-none {
+    transform: none;
+  }
+  .transform-left-half {
+    transform: translateX(-50%);
+  }
+
+  .transform-right-half {
+    transform: translateX(50%);
+  }
+
+  .transform-top-half {
+    transform: translateY(-50%);
+  }
+
+  .transform-bottom-half {
+    transform: translateY(50%);
+  }
+
+  .transform-left-bottom-half {
+    transform: translateX(-50%) translateY(50%);
+  }
+  .transform-right-bottom-half {
+    transform: translateX(50%) translateY(50%);
+  }
+
+  .transform-left-top-half {
+    transform: translateX(-50%) translateY(-50%);
+  }
+  .transform-right-top-half {
+    transform: translateX(50%) translateY(-50%);
+  }
+}
+
+.position-left-half {
+  left: 50%;
+}
+
+.position-left-top-half {
+  left: -50%;
+  top: -50%;
+}
+
+.section-background {
+  background: rgba(248, 248, 248, 1);
+  background: -moz-linear-gradient(
+    top,
+    rgba(248, 248, 248, 1) 0%,
+    rgba(255, 255, 255, 1) 96%,
+    rgba(255, 255, 255, 1) 100%
+  );
+  background: -webkit-gradient(
+    left top,
+    left bottom,
+    color-stop(0%, rgba(248, 248, 248, 1)),
+    color-stop(96%, rgba(255, 255, 255, 1)),
+    color-stop(100%, rgba(255, 255, 255, 1))
+  );
+  background: -webkit-linear-gradient(
+    top,
+    rgba(248, 248, 248, 1) 0%,
+    rgba(255, 255, 255, 1) 96%,
+    rgba(255, 255, 255, 1) 100%
+  );
+  background: -o-linear-gradient(
+    top,
+    rgba(248, 248, 248, 1) 0%,
+    rgba(255, 255, 255, 1) 96%,
+    rgba(255, 255, 255, 1) 100%
+  );
+  background: -ms-linear-gradient(
+    top,
+    rgba(248, 248, 248, 1) 0%,
+    rgba(255, 255, 255, 1) 96%,
+    rgba(255, 255, 255, 1) 100%
+  );
+  background: linear-gradient(
+    to bottom,
+    rgba(248, 248, 248, 1) 0%,
+    rgba(255, 255, 255, 1) 96%,
+    rgba(255, 255, 255, 1) 100%
+  );
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f8f8f8', endColorstr='#ffffff', GradientType=0 );
+}
+
+.background-gradient {
+  background: rgba(56, 131, 228, 1);
+  background: -moz-linear-gradient(
+    45deg,
+    rgba(56, 131, 228, 1) 0%,
+    rgba(57, 173, 198, 1) 56%,
+    rgba(57, 186, 189, 1) 73%
+  );
+  background: -webkit-gradient(
+    left bottom,
+    right top,
+    color-stop(0%, rgba(56, 131, 228, 1)),
+    color-stop(56%, rgba(57, 173, 198, 1)),
+    color-stop(73%, rgba(57, 186, 189, 1))
+  );
+  background: -webkit-linear-gradient(
+    45deg,
+    rgba(56, 131, 228, 1) 0%,
+    rgba(57, 173, 198, 1) 56%,
+    rgba(57, 186, 189, 1) 73%
+  );
+  background: -o-linear-gradient(
+    45deg,
+    rgba(56, 131, 228, 1) 0%,
+    rgba(57, 173, 198, 1) 56%,
+    rgba(57, 186, 189, 1) 73%
+  );
+  background: -ms-linear-gradient(
+    45deg,
+    rgba(56, 131, 228, 1) 0%,
+    rgba(57, 173, 198, 1) 56%,
+    rgba(57, 186, 189, 1) 73%
+  );
+  background: linear-gradient(
+    45deg,
+    rgba(56, 131, 228, 1) 0%,
+    rgba(57, 173, 198, 1) 56%,
+    rgba(57, 186, 189, 1) 73%
+  );
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3883e4', endColorstr='#39babd', GradientType=1 );
+}
+.background-gradient-dark {
+  background: rgba(11, 75, 161, 1);
+  background: -moz-linear-gradient(
+    45deg,
+    rgba(11, 75, 161, 1) 0%,
+    rgba(6, 115, 160, 1) 40%,
+    rgba(0, 155, 159, 1) 80%
+  );
+  background: -webkit-gradient(
+    left bottom,
+    right top,
+    color-stop(0%, rgba(11, 75, 161, 1)),
+    color-stop(40%, rgba(6, 115, 160, 1)),
+    color-stop(80%, rgba(0, 155, 159, 1))
+  );
+  background: -webkit-linear-gradient(
+    45deg,
+    rgba(11, 75, 161, 1) 0%,
+    rgba(6, 115, 160, 1) 40%,
+    rgba(0, 155, 159, 1) 80%
+  );
+  background: -o-linear-gradient(
+    45deg,
+    rgba(11, 75, 161, 1) 0%,
+    rgba(6, 115, 160, 1) 40%,
+    rgba(0, 155, 159, 1) 80%
+  );
+  background: -ms-linear-gradient(
+    45deg,
+    rgba(11, 75, 161, 1) 0%,
+    rgba(6, 115, 160, 1) 40%,
+    rgba(0, 155, 159, 1) 80%
+  );
+  background: linear-gradient(
+    45deg,
+    rgba(11, 75, 161, 1) 0%,
+    rgba(6, 115, 160, 1) 40%,
+    rgba(0, 155, 159, 1) 80%
+  );
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0b4ba1', endColorstr='#009b9f', GradientType=1 );
+}
+.background-gradient-green {
+  background: rgba(150, 232, 201, 1);
+  background: -moz-linear-gradient(
+    top,
+    rgba(150, 232, 201, 1) 0%,
+    rgba(84, 183, 138, 1) 100%
+  );
+  background: -webkit-gradient(
+    left top,
+    left bottom,
+    color-stop(0%, rgba(150, 232, 201, 1)),
+    color-stop(100%, rgba(84, 183, 138, 1))
+  );
+  background: -webkit-linear-gradient(
+    top,
+    rgba(150, 232, 201, 1) 0%,
+    rgba(84, 183, 138, 1) 100%
+  );
+  background: -o-linear-gradient(
+    top,
+    rgba(150, 232, 201, 1) 0%,
+    rgba(84, 183, 138, 1) 100%
+  );
+  background: -ms-linear-gradient(
+    top,
+    rgba(150, 232, 201, 1) 0%,
+    rgba(84, 183, 138, 1) 100%
+  );
+  background: linear-gradient(
+    to bottom,
+    rgba(150, 232, 201, 1) 0%,
+    rgba(84, 183, 138, 1) 100%
+  );
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#96e8c9', endColorstr='#54b78a', GradientType=0 );
+}
+
+.link-gradient,
+.hover\:link-gradient:hover {
+  background: rgba(84, 183, 138, 0);
+  background: -moz-linear-gradient(
+    top,
+    rgba(84, 183, 138, 0) 0%,
+    rgba(84, 183, 138, 1) 100%
+  );
+  background: -webkit-gradient(
+    left top,
+    left bottom,
+    color-stop(0%, rgba(84, 183, 138, 0)),
+    color-stop(100%, rgba(84, 183, 138, 1))
+  );
+  background: -webkit-linear-gradient(
+    top,
+    rgba(84, 183, 138, 0) 0%,
+    rgba(84, 183, 138, 1) 100%
+  );
+  background: -o-linear-gradient(
+    top,
+    rgba(84, 183, 138, 0) 0%,
+    rgba(84, 183, 138, 1) 100%
+  );
+  background: -ms-linear-gradient(
+    top,
+    rgba(84, 183, 138, 0) 0%,
+    rgba(84, 183, 138, 1) 100%
+  );
+  background: linear-gradient(
+    to bottom,
+    rgba(84, 183, 138, 0) 0%,
+    rgba(84, 183, 138, 1) 100%
+  );
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#54b78a', endColorstr='#54b78a', GradientType=0 );
+}
+
+.text-shadow {
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+.text-shadow-md {
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.08);
+}
+
+.text-shadow-lg {
+  text-shadow: 0 15px 30px rgba(0, 0, 0, 0.11), 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+.text-shadow-none {
+  text-shadow: none;
+}
+.text-use-gradient {
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -o-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+  -o-text-fill-color: transparent;
+}
+.rotate-45 {
+  transform: rotateZ(45deg);
+}
+
+.transition {
+  transition: all 0.4s ease, z-index 1ms;
+}
+
+.main-course-section:hover > div {
+  opacity: 0.5;
+}
+
+.main-course-section:hover > div:hover {
+  opacity: 1.0;
+  transform: scale(1.1);
+}
+
+@responsive {
+  .hide {
+    display: none !important;
+  }
+  .grid {
+    display: grid;
+  }
+  .grid-1 {
+    grid-template-columns: auto;
+  }
+  .grid-2 {
+    grid-template-columns: 1fr 1fr;
+  }
+  .grid-3 {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  .order-none {
+    order: initial;
+  }
+  .order-1 {
+    order: 1;
+  }
+  .order-2 {
+    order: 2;
+  }
+  .order-3 {
+    order: 3;
+  }
+  .order-4 {
+    order: 4;
+  }
+  .order-5 {
+    order: 5;
+  }
+  .order-6 {
+    order: 6;
+  }
+  .order-7 {
+    order: 7;
+  }
+  .order-8 {
+    order: 8;
+  }
+  .order-9 {
+    order: 9;
+  }
+  .order-10 {
+    order: 10;
+  }
+}
