@@ -40,13 +40,13 @@ class News extends React.Component<{ posts: any[], total: number, router: any, p
                   <div className="flex-none pr-32">{post.created_at.substring(0, 10)}</div>
                   <div className="flex-auto">
                     <div className="font-bold text-xl">
-                      <a className="text-black" target="_blank" href="/detail/123">
+                      <a className="text-black" target="_blank" href={`/detail/${post.id}`}>
                         {post.title}
                       </a>
                     </div>
                     <div className="prose max-w-none text-gray-500 mt-6" dangerouslySetInnerHTML={{ __html: post.sub_title }}></div>
                     <div className="text-base font-medium mt-7">
-                      <a className="text-teal-600 hover:text-teal-700" target="_blank" href="/detail/123" >
+                      <a className="text-teal-600 hover:text-teal-700" target="_blank" href={`/detail/${post.id}`} >
                         查看更多 →
                       </a>
                     </div>

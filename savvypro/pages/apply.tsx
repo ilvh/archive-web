@@ -1,6 +1,7 @@
 import React from 'react';
 import Layout from '../components/layout';
 import Head from '../components/head';
+import fetch from 'node-fetch';
 import { Form, Input, Button, Select, Modal } from 'antd';
 
 const formItemLayout = {
@@ -70,7 +71,7 @@ class ApplyForm extends React.Component<{ form: any }> {
                 <Head title="Savvypro | 报名咨询" description="" />
                 <Layout>
                     <div className="sm:max-w-2xl md:px-4 lg:max-w-7xl mx-auto mx-auto flex justify-center">
-                        <div className="sm:max-w-2xl lg:max-w-4xl w-1/3 pt-32 pb-4 ">
+                        <div className="sm:max-w-2xl lg:max-w-4xl w-2/3 pt-32 pb-4 ">
                             <Form
                                 {...formItemLayout}
                                 onSubmit={this.handleSubmit}
