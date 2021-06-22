@@ -8,7 +8,7 @@ import {
 import QRCodeModal from '../elements/QRCodeModal'
 
 const Wrapper = {
-    position: "sticky",
+    position: "fixed",
     bottom: "5rem",
     right: "2rem",
     float: "right",

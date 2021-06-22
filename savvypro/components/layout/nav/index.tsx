@@ -160,7 +160,7 @@ class Nav extends Component {
             transform: this.state.ctx ? "translateY(-100%)" : "translateY(0)"
           }}>
           <Container
-            className={`mx-auto flex items-center justify-between py-0 md:py-0`}>
+            className={`mx-auto flex items-center justify-between py-0 md:py-0 lg:max-w-7xl`}>
             <div className="lg:w-1/5 py-4">
               <Link href="/">
                 <a className="relative inline-block ">

@@ -5,11 +5,9 @@
 html {
   letter-spacing: 1px;
 }
-body, div, p,span,{
-  font-size: 18px;
-}
+
 .relative{
-  font-size: 18px;
+  font-size: 16px;
 }
 textarea:focus,
 select:focus,
