@@ -12,7 +12,7 @@ export class SAS extends Program implements withPage {
     }
   };
   video = {
-    link: 'https://savvyuni-web.s3.amazonaws.com/banners/SAS_banner.mp4',
+    //link: 'https://savvyuni-web.s3.amazonaws.com/banners/SAS_banner.mp4',
     poster: "../../../../static/pages/programs/sas.png"
   };
   page: TemplateRenderProps = {

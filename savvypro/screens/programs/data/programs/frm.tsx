@@ -13,7 +13,7 @@ export class FRM extends Program implements withPage {
   };
 
   video = {
-    link: 'https://savvyuni-web.s3.amazonaws.com/banners/FRM_banner.mp4',
+    //link: 'https://savvyuni-web.s3.amazonaws.com/banners/FRM_banner.mp4',
     poster: "../../../../static/pages/programs/frm.png"
   };
 

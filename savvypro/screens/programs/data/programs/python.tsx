@@ -13,7 +13,7 @@ export class Python extends Program implements withPage {
   };
 
   video = {
-    link: 'https://savvyuni-web.s3.amazonaws.com/banners/Python_banner.mp4',
+    //link: 'https://savvyuni-web.s3.amazonaws.com/banners/Python_banner.mp4',
     poster: "../../../../static/pages/programs/python.png"
   };
 

@@ -13,7 +13,7 @@ export class SQL extends Program implements withPage {
   };
 
   video = {
-    link: 'https://savvyuni-web.s3.amazonaws.com/banners/SQL_banner.mp4',
+    //link: 'https://savvyuni-web.s3.amazonaws.com/banners/SQL_banner.mp4',
     poster: "../../../../static/pages/programs/sql.png"
   };
 

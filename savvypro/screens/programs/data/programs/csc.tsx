@@ -23,7 +23,7 @@
     };
 
     video = {
-      link: "https://savvyuni-web.s3.amazonaws.com/banners/CSC_banner.mp4",
+      // link: "https://savvyuni-web.s3.amazonaws.com/banners/CSC_banner.mp4",
       poster: "../../../../static/pages/programs/csc.png"
     };
 

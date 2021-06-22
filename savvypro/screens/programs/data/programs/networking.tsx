@@ -13,7 +13,7 @@ export class Networking extends Program implements withPage {
   };
 
   video = {
-    link: 'https://savvyuni-web.s3.amazonaws.com/banners/Networking_banner.mp4',
+    //link: 'https://savvyuni-web.s3.amazonaws.com/banners/Networking_banner.mp4',
     poster: "../../../../static/pages/programs/networking.png"
   };
 

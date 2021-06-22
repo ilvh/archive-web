@@ -23,7 +23,7 @@ class CFA extends Program {
   };
 
   video = {
-    link: 'https://savvyuni-web.s3.amazonaws.com/banners/CFA_banner_new.mp4',
+    //link: 'https://savvyuni-web.s3.amazonaws.com/banners/CFA_banner_new.mp4',
     poster: "../../../../static/pages/programs/defaultBanner.jpg"
   };
 

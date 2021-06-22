@@ -58,11 +58,11 @@ const linkList: LinkRef[] = [
     href: "/vip1v1",
     text: "🔥VIP1对1求职辅导",
   },
+  { text: '新闻中心', href: '/news' },
   {
     href: "/aboutus",
     text: "关于我们",
     children: [
-      { text: '新闻中心', href: '/news' },
       { text: '联系我们', href: '/contactus' },
       { text: "报名咨询", href: "/apply" }
     ]

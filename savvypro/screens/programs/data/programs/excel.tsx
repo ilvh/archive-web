@@ -12,7 +12,7 @@ export class Excel extends Program implements withPage {
     }
   };
   video = {
-    link: 'https://savvyuni-web.s3.amazonaws.com/banners/Excel-VBA_banner.mp4',
+    //link: 'https://savvyuni-web.s3.amazonaws.com/banners/Excel-VBA_banner.mp4',
     poster: "../../../../static/pages/programs/excel.png"
   };
   page: TemplateRenderProps = {
